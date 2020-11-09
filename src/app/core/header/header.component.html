@@ -1,24 +1,33 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Navbar</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<header class="clearfix">
+  <div class="container">
+    <div class="header-left">
+      <h1>Your company</h1>
+    </div>
+    <div class="header-right">
+      <label for="open">
+        <span class="hidden-desktop"></span>
+      </label>
+      <input type="checkbox" name="" id="open">
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Inspiration</a>
+        <a href="#">Articles</a>
+        <a href="#">Works</a>
+        <a href="#">Contact</a>
+        <a href="#">Works</a>
+        <a routerLink="/Login">Login</a>
+      </nav>
+    </div>
   </div>
-</nav>
+</header>
+<section class="clearfix">
+  <div class="container">
+    <div class="section-left">
+      <h1 class="section-title">Lorem ipsum dolor sit amet.</h1>
+      <h5 class="section-tagline">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h5>
+    </div>
+    <div class="section-right">
+      <button class="learn-more">Learn more</button>
+    </div>
+  </div>
+</section>
