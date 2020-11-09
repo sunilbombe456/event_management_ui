@@ -24,12 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules\bootstrap\dist\css\bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules\bootstrap\dist\js\bootstrap.min.js"
-              ]
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -122,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "event-management-ui"
+    }
+  },
+  "defaultProject": "event-management-ui",
+  "cli": {
+    "analytics": "4066992a-f19e-4bab-a5d6-47e65fdb314c"
+  }
 }
