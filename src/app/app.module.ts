@@ -12,6 +12,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EventManagementApiService } from './services/event-management-api.service';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { EventManagementApiService } from './services/event-management-api.servi
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [EventManagementApiService],
+  providers: [
+    EventManagementApiService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

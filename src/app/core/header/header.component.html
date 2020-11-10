@@ -15,7 +15,11 @@
         <a href="#">Works</a>
         <a href="#">Contact</a>
         <a href="#">Works</a>
-        <a routerLink="/Login">Login</a>
+        <a *ngIf="loggedIn else elseBlock" routerLink="/Login">Login</a>
+        <ng-template #elseBlock>
+          <a  routerLink="/Login">Logout</a>
+        </ng-template>
+        
       </nav>
     </div>
   </div>
