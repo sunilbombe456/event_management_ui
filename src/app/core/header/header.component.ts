@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventManagementApiService } from '../../services/event-management-api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventManagementApiService: EventManagementApiService) { }
 
   ngOnInit(): void {
   }
+
+  loggedIn = this.eventManagementApiService.isLoggedIn;
+
+
 
 }
