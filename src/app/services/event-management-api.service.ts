@@ -1,38 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class EventManagementApiService {
 
-  constructor(private http :HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
   private loggedIn = false;
-  private token: string= "";
+  private token: string = "";
 
-  isLoggedIn(){
+  isLoggedIn() {
     return this.loggedIn;
   }
 
-    
- httpOptions = {
-  headers: new HttpHeaders({
-    "Content-Type": "application/json",
-    "cache-control": "no-cache",
-  }),
-};
-  
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json",
+      "cache-control": "no-cache",
+    }),
+  };
+
 
   // httpOptions.headers = httpOptions.headers.set('Authorization', 'my-new-auth-token');
 
-  signInAccount(userDetail:any){
-    return this.http.post("http://localhost:8080/public/event/1/0/authenticate", userDetail,{responseType:'text' as 'json'});
+  signInAccount(userDetail: any) {
+    return this.http.post("http://localhost:8080/public/event/1/0/authenticate", userDetail, { responseType: 'text' as 'json' });
   }
 
-  signUpAccount(userDetail:any){
-    return this.http.post("http://localhost:8080/public/event/1/0/signup",userDetail,{responseType:'text' as 'json'});
+  signUpAccount(userDetail: any) {
+    return this.http.post("http://localhost:8080/public/event/1/0/signup", userDetail, { responseType: 'text' as 'json' });
   }
 
-  
+
 
   setLoggedIn(loggedIn: boolean, token?: string) {
     this.loggedIn = loggedIn;
@@ -46,8 +48,8 @@ export class EventManagementApiService {
       }),
     };
     this.http.get("http://localhost:8080/private/event/1/0/Admin/demo", this.httpOptions).subscribe(
-      (response :any)=>{
-        console.log("Got the response = "+response.message);
+      (response: any) => {
+        console.log("Got the response = " + response.message);
       }
     )
   }
@@ -80,5 +82,5 @@ export class EventManagementApiService {
   //   localStorage.clear();
   //   this.router.navigate(['/']);
   // }
-//}
+  //}
 }

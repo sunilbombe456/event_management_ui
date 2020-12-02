@@ -1,0 +1,114 @@
+
+<div class="container" style="margin-bottom: 30px; margin-top: 20px;">
+
+    <div class="row">
+
+        <div class="col-lg-4 col-sm-6" *ngFor="let decoration of venuesList2" style="padding: 10px;">
+
+            <div class="decorationCard shadow" >
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-9" style="padding-left: 20px;">
+                        <div  style=" height: 10px; width: 70%; background-color: lightgray;">
+                
+                        </div>
+                    </div>
+                    
+                    <div class="h6 col-3 text-right addButton" >+</div>
+
+                </div>
+                <hr>
+                <div class="row" style="margin-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h6" style="height: 10px; width: 50%; background-color: lightgray;">
+                
+                </div>
+                <div class="h6" style="height: 10px; width: 50%; background-color: lightgray;">
+                
+                </div>
+                <div class="h6" style="height: 10px; width: 50%; background-color: lightgray;">
+                
+                </div>
+                 <hr>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="container" style="margin-bottom: 30px; margin-top: 20px;">
+
+    <div class="row">
+
+        <div class="col-lg-4 col-sm-6" *ngFor="let venue of venuesList2" style="padding: 10px;">
+
+            <div class="decorationCard shadow" >
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="h6 col-9">{{venue.name}}</div>
+                    <div class="h6 col-3 text-right addButton" >+</div>
+
+                </div>
+                <hr>
+                <div class="row" style="margin-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="color: grey;">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 15px; color: grey; padding-bottom: 5px;"></i>
+                    {{venue.address.localAddress}}
+                </div>
+                <div style="color: grey;">
+                    <i class="fa fa-users" aria-hidden="true" style="margin-right: 5px; color: grey; padding-bottom: 5px;"></i>
+                    {{venue.peopleCapacity}}
+                </div>
+                <div style="color: grey;">
+                    <i class="fa fa-inr" aria-hidden="true" style="margin-right: 15px; color: grey; padding-bottom: 5px;"></i>
+                     {{venue.rate}}
+                 </div>
+                 <hr>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

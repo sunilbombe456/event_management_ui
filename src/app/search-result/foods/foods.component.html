@@ -1,0 +1,63 @@
+
+<div class="row">
+
+    <div class="col-md-4 col-sm-6 col-8">
+
+        <select class="selectpicker form-control" style="color: darkblue; font-weight: 600;">
+            <option>Starters</option>
+            <option>Main Course</option>
+            <option>Sweet</option>
+            <option>Ice-Cream / cold drinks</option>
+        
+          </select>
+    </div>
+
+</div>
+
+  
+
+<div class="container" style="margin-bottom: 30px; margin-top: 20px;">
+
+    <div class="row">
+
+        <div class="col-lg-4 col-sm-6" *ngFor="let food of foodsList2; let i= index;" style="padding: 10px;">
+
+            <div class="decorationCard shadow" >
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="h6 col-9">{{food?.name}}</div>
+                    <div class="h6 col-3 text-right addButton" (click)="addFoodToCart(i)">+</div>
+
+                </div>
+                <hr>
+                <div class="row" style="margin-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div> <i class="fa fa-inr" aria-hidden="true" style="margin-right: 15px; color: grey;"></i>
+                    {{food?.price}}</div><br>
+                
+                
+
+            </div>
+        </div>
+    </div>
+
+</div>

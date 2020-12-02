@@ -1,0 +1,167 @@
+<div class="h4 " style="padding: 20px;">My Event</div>
+
+<div class="container">
+
+<div class="h5">
+    Venue <span style="margin-left: 20px;"><Button routerLink="/browse" class="btn btn-default" style="font-size: 20px; cursor: pointer; font-weight: bold;">+</Button></span>
+</div>
+
+<div class="container" style="margin-bottom: 30px; margin-top: 20px;">
+
+    <div class="row">
+
+        <div class="col-lg-4 col-sm-6" *ngFor="let venue of myVenues; let i= index" style="padding: 10px;">
+
+            <div class="decorationCard shadow" >
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="h6 col-9">{{venue.name}}</div>
+                    <div class="h6 col-3 text-right removeBtn" (click)="removeVenue(i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></div>
+
+                </div>
+                <hr>
+                <div class="row" style="margin-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                    <div class=" col-4" style="padding: 5px;">
+
+                        <div class="imageBox">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="color: grey;">
+                    <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 15px; color: grey; padding-bottom: 5px;"></i>
+                    {{venue.address.localAddress}}
+                </div>
+                <div style="color: grey;">
+                    <i class="fa fa-users" aria-hidden="true" style="margin-right: 5px; color: grey; padding-bottom: 5px;"></i>
+                    {{venue.peopleCapacity}}
+                </div>
+                <div style="color: grey;">
+                    <i class="fa fa-inr" aria-hidden="true" style="margin-right: 15px; color: grey; padding-bottom: 5px;"></i>
+                     {{venue.rate}}
+                 </div>
+                 <hr>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr>
+
+
+<div class="h5">
+    Decoration
+    <span style="margin-left: 20px;"><Button routerLink="/browse/decoration" class="btn btn-default" style="font-size: 20px; cursor: pointer; font-weight: bold;">+</Button></span>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-4 col-sm-6" *ngFor="let decoration of myDecorations; let i= index;" style="padding: 10px;">
+
+        <div class="decorationCard shadow" >
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="h6 col-9">{{decoration.name}}</div>
+                <div class="h6 col-3 text-right removeBtn" (click)="removeDecoration(i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></div>
+
+            </div>
+            <hr>
+            <div class="row" style="margin-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                <div class=" col-4" style="padding: 5px;">
+
+                    <div class="imageBox">
+
+                    </div>
+                </div>
+                <div class="col-4" style="padding: 5px;">
+
+                    <div class="imageBox">
+
+                    </div>
+                </div>
+                <div class=" col-4" style="padding: 5px;">
+
+                    <div class="imageBox">
+
+                    </div>
+                </div>
+            </div>
+
+            <div>                    <i class="fa fa-inr" aria-hidden="true" style="margin-right: 15px; color: grey; padding-bottom: 5px;"></i>
+                {{decoration.price}} rs </div><br>
+            <p class="descriptionParagraph" style="color: grey; font-size: 15px;">
+                {{decoration.description}}
+            </p>
+            <p class="showMore" >Show more...</p>
+
+        </div>
+    </div>
+
+    </div>
+<hr>
+
+
+<div class="h5">
+    Food
+    <span style="margin-left: 20px;"><Button  routerLink="/browse/food" class="btn btn-default" style="font-size: 20px; cursor: pointer; font-weight: bold;">+</Button></span>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-4 col-sm-6" *ngFor="let food of myfood; let i= index;" style="padding: 10px;">
+
+        <div class="decorationCard shadow" >
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="h6 col-9">{{food?.name}}</div>
+                <div class="h6 col-3 text-right removeBtn" (click)="removeFood(i)"><i class="fa fa-times fa-lg" aria-hidden="true"></i></div>
+
+            </div>
+            <hr>
+            <div class="row" style="margin-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                <div class=" col-4" style="padding: 5px;">
+
+                    <div class="imageBox">
+
+                    </div>
+                </div>
+                <div class="col-4" style="padding: 5px;">
+
+                    <div class="imageBox">
+
+                    </div>
+                </div>
+                <div class=" col-4" style="padding: 5px;">
+
+                    <div class="imageBox">
+
+                    </div>
+                </div>
+            </div>
+
+            <div> <i class="fa fa-inr" aria-hidden="true" style="margin-right: 15px; color: grey;"></i>
+                {{food?.price}}</div><br>
+            
+            
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+</div>

@@ -1,3 +1,69 @@
+
+<div id="searchDiv" class="" style="height: 650px; background-color: blueviolet; padding-top: 20%;">
+
+  <div class="container shadow-lg" style="background-color: white; padding-top: 20px; border-radius: 5px;">
+
+    
+
+      <form [formGroup]="searchEntity" >
+
+        <div class="row">
+     
+      
+      <div class="form-group col-md-3" >
+        <select class="input-text form-control" formControlName="eventType">
+            <option >Select Event</option>
+            <option >WEDDING</option>
+            <option>BIRTHDAY</option>
+            <option >RECEPTION</option>
+            <option >CONFERENCE</option>
+            <option >PRODUCT_LOUNCHES</option>
+            <option >CEREMONIES_GALAS</option>
+            <option >VIP_EVENTS</option>
+            <option >JOB_FAIRS</option>
+            <option >RECRUTING EVENT</option>
+
+
+        </select>
+
+    </div>
+
+    <div class="form-group col-md-3" >
+      <input type="date" class="input-text form-control" min="{{inputMinDate}}" formControlName="date">
+  
+
+  </div>
+
+  <div class="form-group col-md-3" >
+    <select class="input-text form-control" formControlName="peopleCount">
+        <option value="Select People Count">Select People Count</option>
+        <option value="100">upto 100</option>
+        <option value="500">from 100 - 500</option>
+        <option value="1000">from 500 - 1000</option>
+        <option value="2000">from 1000 - 2000</option>
+        <option value="5000">from 2000 - 5000</option>
+        <option value="6000">Above 5000</option>
+
+
+    </select>
+
+</div>
+
+<div class="form-group col-md-3 text-center" >
+  <button type="button" class=" btn btn-success" style="cursor: pointer;" (click)="onSubmitSearch()">Search</button>
+
+</div>
+
+</div>
+</form>
+
+   
+  
+  
+
+  </div>
+
+</div>
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
       <h1 class="display-4 font-weight-normal">Punny headline</h1>

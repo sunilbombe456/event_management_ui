@@ -1,0 +1,41 @@
+.decorationCard{
+
+    box-shadow: 5px 10px 18px lightskyblue;
+    padding: 10px;
+}
+
+.imageBox{
+    height: 80px;
+    background-color: grey;
+}
+
+.descriptionParagraph{
+
+    line-height: 1.2em;
+    height: 3.6em;
+    overflow: hidden;
+   
+}
+
+.addButton{
+    font-size: 30px;
+     color: grey;
+      cursor: pointer;
+}
+
+:hover.addButton{
+
+    color: blue;
+    
+}
+
+.showMore{
+
+    color: grey;
+    cursor: pointer;
+}
+
+:hover.showMore{
+
+    color: blue;
+}
