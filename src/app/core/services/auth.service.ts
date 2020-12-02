@@ -3,7 +3,11 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class AuthService {
 
   serverUrl = 'http://localhost:8080/public/event/1/0';
@@ -14,14 +18,14 @@ export class AuthService {
   redirectUrl: string;
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${this.serverUrl}/authenticate`, {username: username, password: password})
-    .pipe(map(user => {
+    return this.http.post<any>(`${this.serverUrl}/authenticate`, { username: username, password: password })
+      .pipe(map(user => {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
       }),
-      catchError(this.handleError)
-    );
+        catchError(this.handleError)
+      );
   }
 
   isLoggedIn() {
