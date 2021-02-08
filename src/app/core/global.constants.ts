@@ -1,6 +1,6 @@
 export class GlobalConstants {
 
-    public static apiURL: string = "https://itsolutionstuff.com/";
+    public static apiURL: string = 'https://itsolutionstuff.com/';
 
-    public static siteTitle: string = "TheOriginalApproach.com";
+    public static siteTitle: string = 'TheOriginalApproach.com';
 }

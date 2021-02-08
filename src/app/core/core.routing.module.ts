@@ -11,7 +11,8 @@ const coreRoutes: Routes = [
 
     //{ path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '', component: DashboardComponent },
-    { path: 'Login', component: SigninComponent },
+    { path: 'login', component: SigninComponent },
+    { path:'dashboard', component: DashboardComponent},
     { path: 'Signup', component: SignupComponent },
     { path: 'browse', loadChildren: '../search-result/search-result.module#SearchResultModule' },
     { path: 'cart', component: CartComponent },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventManagementApiService } from '../../services/event-management-api.service';
+import {  TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +8,32 @@ import { EventManagementApiService } from '../../services/event-management-api.s
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private eventManagementApiService: EventManagementApiService) { }
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showEmployeeBoard = false;
+  username: string;
+
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showEmployeeBoard = this.roles.includes('ROLE_EMPLOYEE');
+
+      this.username = user.username;
+    }
   }
 
-  loggedIn = this.eventManagementApiService.isLoggedIn;
-
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
 
 
 }

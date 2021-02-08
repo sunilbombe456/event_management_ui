@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{ FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventManagementApiService } from '../../services/event-management-api.service';
+import { TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-signin',
@@ -10,14 +11,12 @@ import { EventManagementApiService } from '../../services/event-management-api.s
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private router: Router, private apiService: EventManagementApiService) { }
+  constructor(private router: Router,private tokenStorageService:TokenStorageService, private apiService: EventManagementApiService) { }
 
   ngOnInit(): void {
   }
   
-  private token: string;
-  private loggedIn = false;
-
+ 
   loginForm = new FormGroup({
     userName : new FormControl(''),
     password : new FormControl('')
@@ -32,14 +31,15 @@ export class SigninComponent implements OnInit {
    this.apiService.signInAccount(this.loginForm.value).subscribe(
      (response:any)=>{
        if(response!=undefined){
-        this.token= response;
-        this.loggedIn= true;
-        this.apiService.setLoggedIn(this.loggedIn,this.token);
-        const userData = {
-                token: this.token
-            };
-            localStorage.setItem('user', JSON.stringify(userData));
-            this.router.navigateByUrl('/Dashboard');
+         console.log(response);
+      //   this.token= response;
+      //   this.loggedIn= true;
+      //  // this.apiService.setLoggedIn(this.loggedIn,this.token);
+      //   const userData = {
+      //           token: this.token
+      //       };
+      //       localStorage.setItem('user', JSON.stringify(userData));
+      //       this.router.navigateByUrl('/dashboard');
        }
      },(err)=>{
        alert(err.message);

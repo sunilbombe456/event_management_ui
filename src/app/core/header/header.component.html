@@ -12,11 +12,11 @@
         <a >Search</a>
         <a routerLink="/cart">Cart</a>
         <a routerLink="/profile">Profile</a>
-        <a *ngIf="loggedIn else elseBlock" routerLink="/login">Login</a>
+        <a *ngIf="isLoggedIn else elseBlock" routerLink="/login">Login</a>
         <ng-template #elseBlock>
-          <a  routerLink="/Login">Logout</a>
+          <a  (click)="logout()">Logout</a>
         </ng-template>
-        
+
       </nav>
     </div>
   </div>

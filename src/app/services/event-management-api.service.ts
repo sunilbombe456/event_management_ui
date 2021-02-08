@@ -36,23 +36,23 @@ export class EventManagementApiService {
 
 
 
-  setLoggedIn(loggedIn: boolean, token?: string) {
-    this.loggedIn = loggedIn;
-    this.token = token;
+  // setLoggedIn(loggedIn: boolean, token?: string) {
+  //   this.loggedIn = loggedIn;
+  //   this.token = token;
 
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        "cache-control": "no-cache",
-        "Authorization": this.token
-      }),
-    };
-    this.http.get("http://localhost:8080/private/event/1/0/Admin/demo", this.httpOptions).subscribe(
-      (response: any) => {
-        console.log("Got the response = " + response.message);
-      }
-    )
-  }
+  //   this.httpOptions = {
+  //     headers: new HttpHeaders({
+  //       "Content-Type": "application/json",
+  //       "cache-control": "no-cache",
+  //       "Authorization": this.token
+  //     }),
+  //   };
+  //   this.http.get("http://localhost:8080/private/event/1/0/Admin/demo", this.httpOptions).subscribe(
+  //     (response: any) => {
+  //       console.log("Got the response = " + response.message);
+  //     }
+  //   )
+  // }
 
   // login(user) {
   //   if (user.email !== '' && user.password !== '' ) {

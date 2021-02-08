@@ -30,16 +30,16 @@ export class SignupComponent implements OnInit {
     console.log(this.signUpForm.value);
    this.apiService.signUpAccount(this.signUpForm.value).subscribe(
      (response:any)=>{
-       if(response!=undefined){
-        this.token= response;
-        this.loggedIn= true;
-        this.apiService.setLoggedIn(this.loggedIn,this.token);
-        const userData = {
-                token: this.token
-            };
-            localStorage.setItem('user', JSON.stringify(userData));
-            this.router.navigateByUrl('/Dashboard');
-       }
+      //  if(response!=undefined){
+      //   this.token= response;
+      //   this.loggedIn= true;
+      //   this.apiService.setLoggedIn(this.loggedIn,this.token);
+      //   const userData = {
+      //           token: this.token
+      //       };
+      //       localStorage.setItem('user', JSON.stringify(userData));
+      //       this.router.navigateByUrl('/Dashboard');
+      //  }
      },(err)=>{
        alert(err.message);
      }

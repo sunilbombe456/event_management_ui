@@ -21,7 +21,7 @@ export class VenuesComponent implements OnInit {
 
     this.venuesList2 = [
       {
-        id: "101",
+        id: '101',
         name: "Ganraj Mangal Karyala",
         address: {
           state: "Maharashtra",
