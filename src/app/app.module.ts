@@ -1,17 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
-import { EventManagementApiService } from './services/event-management-api.service';
-import { AuthService } from './core/services/auth.service';
 import { CoreModule } from './core/core.module';
+import {  httpInterceptProviders } from './helper/index';
+import { AlertComponent } from './component/alert/alert.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +19,7 @@ import { CoreModule } from './core/core.module';
     HttpClientModule
   ],
   providers: [
+    httpInterceptProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -10,13 +10,15 @@
       <input type="checkbox" name="" id="open">
       <nav>
         <a >Search</a>
-        <a routerLink="/cart">Cart</a>
-        <a routerLink="/profile">Profile</a>
-        <a *ngIf="loggedIn else elseBlock" routerLink="/login">Login</a>
+        <a   *ngIf="isLoggedIn" routerLink="/cart">Cart</a>
+        <a  *ngIf="isLoggedIn" routerLink="/profile">Profile</a>
+        <a *ngIf="showAdminBoard" routerLink="#">Admin</a>
+        <a *ngIf="showEmployeeBoard" routerLink="#">Employee</a>
+        <a *ngIf="isLoggedIn else elseBlock"  (click)="logout()">Logout</a>
         <ng-template #elseBlock>
-          <a  routerLink="/Login">Logout</a>
+          <a routerLink="/login">Login</a>
         </ng-template>
-        
+
       </nav>
     </div>
   </div>
