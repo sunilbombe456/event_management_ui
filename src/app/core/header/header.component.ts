@@ -8,26 +8,28 @@ import {  TokenStorageService } from '../../services/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
 
-  private roles: string[];
   isLoggedIn = false;
   showAdminBoard = false;
   showEmployeeBoard = false;
   username: string;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService) {
 
-  ngOnInit(): void {
-    this.isLoggedIn = !this.tokenStorageService.getToken();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
 
+    // console.log('isLogged in status' + this.isLoggedIn);
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
-
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showEmployeeBoard = this.roles.includes('ROLE_EMPLOYEE');
-
+      const user = JSON.parse(this.tokenStorageService.getUser());
+      this.showAdminBoard = user.roles.includes('ROLE_ADMIN');
+      this.showEmployeeBoard = user.roles.includes('ROLE_EMPLOYEE');
+      // this.showAdminBoard = user.roles.includes('ROLE_ADMIN')
       this.username = user.username;
     }
+
+   }
+
+  ngOnInit(): void {
+
   }
 
   logout(): void {

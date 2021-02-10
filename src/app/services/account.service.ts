@@ -16,6 +16,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { User } from '../models/user';
+import {TokenStorageService} from '../services/token-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -24,8 +25,10 @@ export class AccountService {
 
     constructor(
         private router: Router,
-        private http: HttpClient
+        private http: HttpClient,
+        private tokenStorageService: TokenStorageService
     ) {
+
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
     }
@@ -34,15 +37,34 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) {
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
-            }));
+    // login(username, password) {
+    //     return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
+    //         .pipe(map(user => {
+    //             // store user details and jwt token in local storage to keep user logged in between page refreshes
+    //             localStorage.setItem('user', JSON.stringify(user));
+    //             this.userSubject.next(user);
+    //             return user;
+    //         }));
+    // }
+
+    login(userLogin: any): Observable<any>{
+        return this.http.post<User>(`${environment.apiUrl}/public/event/1/0/authenticate`, userLogin, {responseType: 'text' as 'json'})
+        .pipe(map( user => {
+          this.tokenStorageService.saveUser(user);
+          this.tokenStorageService.saveToken(JSON.parse(this.tokenStorageService.getUser()).token);
+          this.userSubject.next(this.tokenStorageService.getUser());
+          console.log(this.tokenStorageService.getUser());
+          return user;
+        }) );
     }
+
+    getById(id: string): Observable<any> {
+      return this.http.get<User>(`${environment.apiUrl}/private/event/1/0/customer/profile/${id}`);
+  }
+    // signInAccount(userDetail: any) {
+    //     return this.http.post("http://localhost:8080/public/event/1/0/authenticate", userDetail, { responseType: 'text' as 'json' });
+    //   }
+
 
     logout() {
         // remove user from local storage and set current user to null
@@ -59,9 +81,7 @@ export class AccountService {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
 
-    getById(id: string) {
-        return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
-    }
+
 
     update(id, params) {
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)

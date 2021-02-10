@@ -18,13 +18,15 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.tokenService.getToken();
     let authReq = request;
-    if (null != token){
+    if (!authReq.url.substring(22, 28).match('public')){
+      if (null != token){
         authReq = request.clone({
           setHeaders: {
             // 'Content-Type': 'application/json',
             Authorization : token
           }
         });
+    }
     }
     return next.handle(authReq);
   }

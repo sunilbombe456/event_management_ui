@@ -6,7 +6,7 @@ import { Alert, AlertType } from '../../models/alert';
 import { AlertService } from '../../services/alert.service';
 
 @Component({
-   selector: './alert.component.html',
+   selector: 'app-alert',
     templateUrl:  './alert.component.html',
     styleUrls: ['./alert.component.css']
   })

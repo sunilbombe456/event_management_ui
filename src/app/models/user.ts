@@ -1,8 +1,20 @@
 export class User {
     id: string;
-    username: string;
-    password: string;
-    firstName: string;
-    lastName: string;
     token: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    email: string;
+    active: boolean;
+    roles: string[];
+    userDetails: {
+          id: string,
+          phone: string,
+          address: string,
+          city: string,
+          dist: string,
+          state: string,
+          pinCode: string
+      };
+
 }
